@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Edge Case</title>
+    <script async>
+      ;(async function() {
+        const registration = await navigator.serviceWorker.register('/service-worker.js')
+        document.querySelector('button').addEventListener('click', async function() {
+          const subscription = await registration.pushManager.subscribe({
+            userVisibleOnly: true,
+            applicationServerKey: new Uint8Array([4, 46, 4, 23, 212, 137, 217, 17, 193, 190, 220, 34, 82, 179, 204, 171, 237, 103, 208, 64, 214, 224, 97, 140, 132, 215, 119, 210, 222, 178, 7, 20, 60, 250, 63, 186, 144, 25, 27, 224, 227, 87, 199, 42, 50, 29, 223, 183, 134, 56, 197, 150, 58, 154, 89, 120, 204, 202, 161, 197, 196, 92, 48, 224, 208])
+          })
+          console.log(subscripition)
+        })
+      })()
+    </script>
+  </head>
+  <body>
+    <button>Click me</button>
+  </body>
+</html>
